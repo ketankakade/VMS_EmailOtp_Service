@@ -1,6 +1,11 @@
 package com.email.dto;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
+
+import javax.persistence.Column;
+
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -23,8 +28,7 @@ public class OtpDTO {
 	
 	private String email;	
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd", iso = ISO.DATE_TIME)
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate OtpGeneratedTimestamp;
+	@CreationTimestamp    
+	private Timestamp timestamp;
 	
 }
