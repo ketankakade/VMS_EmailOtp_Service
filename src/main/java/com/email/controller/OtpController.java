@@ -24,7 +24,7 @@ public class OtpController {
 	public OtpService otpService;
 	
 	@Autowired
-	public EmailService myEmailService;
+	private EmailService myEmailService;
 
 	@PostMapping("/generateotp")
 	public OtpDTO generateOtp(@RequestBody OtpDTO otpDto){
@@ -32,7 +32,7 @@ public class OtpController {
 		Integer otp = otpService.generateOTP();			
 		 
 //		otpDto.setOtpGeneratedTimestamp(OtpGeneratedTimestamp); todo current fetch timestamp
-		otpDto.setOTPNumber(otp);
+		otpDto.setOtpNumber(otp.toString());
 		otpDto.setEmail(otpDto.getEmail());
 		 
 		logger.info("OTP : "+otp);
